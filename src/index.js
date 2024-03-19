@@ -10,6 +10,8 @@
 
 export default {
 	async fetch(request, env, ctx) {
-		return new Response('Hello World!');
+		const res = await fetch("https://google.com");
+		const headers = JSON.stringify(Object.fromEntries(res.headers), null, 1);
+		return new Response(headers);
 	},
 };
